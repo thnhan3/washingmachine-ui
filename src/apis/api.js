@@ -1,10 +1,9 @@
 import axios from "axios";
-const REACT_APP_API_URL = "https://washingmachine-8zdc.onrender.com";
-console.log(REACT_APP_API_URL);
+const REACT_APP_API_URL = "/api";
 
 export const getWashingMachines = async () => {
   try {
-    const response = await axios.get(REACT_APP_API_URL);
+    const response = await axios.get(REACT_APP_API_URL + `/washingmachine`);
     return response.data;
   } catch (error) {
     console.error("Error fetching washing machines:", error);
@@ -14,7 +13,10 @@ export const getWashingMachines = async () => {
 
 export const updateWashingMachine = async (id, data) => {
   try {
-    const response = await axios.put(`${REACT_APP_API_URL}/${id}`, data);
+    const response = await axios.put(
+      `${REACT_APP_API_URL}/washingmachine/${id}`,
+      data
+    );
     return response.data;
   } catch (error) {
     console.error(`Error updating washing machine with id ${id}:`, error);
@@ -23,6 +25,6 @@ export const updateWashingMachine = async (id, data) => {
 };
 
 export const getWashingMachine = async (id) => {
-  const response = await axios.get(`${REACT_APP_API_URL}/${id}`);
+  const response = await axios.get(`${REACT_APP_API_URL}/washingmachine/${id}`);
   return response.data;
 };
