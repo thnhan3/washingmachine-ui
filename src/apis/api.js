@@ -1,13 +1,10 @@
 import axios from "axios";
-import dotenv from "dotenv";
-dotenv.config();
-
-
-const BASE_URL = process.env.REACT_APP_BASE_URL;
+const REACT_APP_API_URL = "https://washingmachine-8zdc.onrender.com";
+console.log(REACT_APP_API_URL);
 
 export const getWashingMachines = async () => {
   try {
-    const response = await axios.get(BASE_URL);
+    const response = await axios.get(REACT_APP_API_URL);
     return response.data;
   } catch (error) {
     console.error("Error fetching washing machines:", error);
@@ -17,7 +14,7 @@ export const getWashingMachines = async () => {
 
 export const updateWashingMachine = async (id, data) => {
   try {
-    const response = await axios.put(`${BASE_URL}/${id}`, data);
+    const response = await axios.put(`${REACT_APP_API_URL}/${id}`, data);
     return response.data;
   } catch (error) {
     console.error(`Error updating washing machine with id ${id}:`, error);
@@ -26,6 +23,6 @@ export const updateWashingMachine = async (id, data) => {
 };
 
 export const getWashingMachine = async (id) => {
-  const response = await axios.get(`${BASE_URL}/${id}`);
+  const response = await axios.get(`${REACT_APP_API_URL}/${id}`);
   return response.data;
 };
