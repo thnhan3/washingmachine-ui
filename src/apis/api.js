@@ -5,8 +5,9 @@ const REACT_APP_API_URL = "/api";
 
 // Lấy danh sách tất cả các washing machines
 export const getWashingMachines = async () => {
+  const url = "https://washingmachine-8zdc.onrender.com/washingmachine";
   try {
-    const response = await axios.get(REACT_APP_API_URL);
+    const response = await axios.get(url);
 
     if (Array.isArray(response.data)) {
       return response.data;
@@ -22,7 +23,7 @@ export const getWashingMachines = async () => {
 
 // Cập nhật thông tin một washing machine dựa trên id
 export const updateWashingMachine = async (id, data) => {
-  const url = `${REACT_APP_API_URL}/${id}`;
+  let url = `https://washingmachine-8zdc.onrender.com/washingmachine/${id}`;
   try {
     const response = await axios.put(url, data);
 
@@ -40,7 +41,7 @@ export const updateWashingMachine = async (id, data) => {
 
 // Lấy thông tin một washing machine dựa trên id
 export const getWashingMachine = async (id) => {
-  const url = `${REACT_APP_API_URL}/${id}`;
+  let url = `https://washingmachine-8zdc.onrender.com/washingmachine/${id}`;
   try {
     const response = await axios.get(url);
 
