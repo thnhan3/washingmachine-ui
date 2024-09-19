@@ -9,10 +9,7 @@ export default function App() {
       try {
         const washingMachines = await getWashingMachines();
         // sort washing machines by id
-        washingMachines.map((machine) => {
-          machine.id = parseInt(machine.id);
-          return machine;
-        });
+        washingMachines.sort((a, b) => Number(a.id) - Number(b.id));
         setWashingMachines(washingMachines);
       } catch (error) {
         console.error("Error fetching washing machines:", error);
