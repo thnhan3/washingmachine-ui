@@ -8,7 +8,7 @@ export default function App() {
     const fetchWashingMachines = async () => {
       try {
         const washingMachines = await getWashingMachines();
-        // sort washing machines by id
+        washingMachines.sort((a, b) => a.id - b.id);
         setWashingMachines(washingMachines);
       } catch (error) {
         console.error("Error fetching washing machines:", error);
