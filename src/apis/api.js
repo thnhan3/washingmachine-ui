@@ -6,7 +6,7 @@ export const getWashingMachines = async () => {
   console.log(url);
   try {
     const response = await axios.get(url);
-    return response.data;
+    return response.data.json() || [];
   } catch (error) {
     console.error("Error fetching washing machines:", error);
     throw error;
@@ -18,7 +18,7 @@ export const updateWashingMachine = async (id, data) => {
   console.log(url);
   try {
     const response = await axios.put(url, data);
-    return response.data;
+    return response.data.json() || {};
   } catch (error) {
     console.error(`Error updating washing machine with id ${id}:`, error);
     throw error;
@@ -30,7 +30,7 @@ export const getWashingMachine = async (id) => {
   console.log(url);
   try {
     const response = await axios.get(url);
-    return response.data;
+    return response.data.json() || {};
   } catch (error) {
     console.error(`Error fetching washing machine with id ${id}:`, error);
     throw error;
