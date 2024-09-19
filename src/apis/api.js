@@ -1,10 +1,12 @@
 import axios from "axios";
 
+// Đặt base URL cho API, sử dụng proxy đã cấu hình trong Vite
+const REACT_APP_API_URL = "/api";
+
 // Lấy danh sách tất cả các washing machines
 export const getWashingMachines = async () => {
   try {
-    const url = `https://washingmachine-8zdc.onrender.com/washingmachine`;
-    const response = await axios.get(url);
+    const response = await axios.get(REACT_APP_API_URL);
 
     if (Array.isArray(response.data)) {
       return response.data;
@@ -20,7 +22,7 @@ export const getWashingMachines = async () => {
 
 // Cập nhật thông tin một washing machine dựa trên id
 export const updateWashingMachine = async (id, data) => {
-  const url = `https://washingmachine-8zdc.onrender.com/washingmachine/${id}`;
+  const url = `${REACT_APP_API_URL}/${id}`;
   try {
     const response = await axios.put(url, data);
 
@@ -38,7 +40,7 @@ export const updateWashingMachine = async (id, data) => {
 
 // Lấy thông tin một washing machine dựa trên id
 export const getWashingMachine = async (id) => {
-  const url = `https://washingmachine-8zdc.onrender.com/washingmachine`;
+  const url = `${REACT_APP_API_URL}/${id}`;
   try {
     const response = await axios.get(url);
 
